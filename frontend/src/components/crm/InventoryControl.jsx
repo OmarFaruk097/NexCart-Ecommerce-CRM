@@ -8,7 +8,7 @@ const InventoryControl = () => {
   const [formData, setFormData] = useState({ name: '', price: '', category: '', stock: '', description: '', imageUrl: '' });
 
   const fetchProducts = () => {
-    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/products')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/products')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -29,7 +29,7 @@ const InventoryControl = () => {
     const newProd = { ...formData, price: parseFloat(formData.price) || 0, stock: parseInt(formData.stock) || 0 };
 
     try {
-      const res = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/products', {
+      const res = await fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newProd)
@@ -48,7 +48,7 @@ const InventoryControl = () => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
 
     try {
-      const res = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/products/${id}`, { method: 'DELETE' });
+      const res = await fetch(`http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/products/${id}`, { method: 'DELETE' });
       if (res.ok) {
         fetchProducts();
       }

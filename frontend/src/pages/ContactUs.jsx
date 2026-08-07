@@ -21,7 +21,7 @@ const ContactUs = () => {
     }
 
     try {
-      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/support', {
+      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/support', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

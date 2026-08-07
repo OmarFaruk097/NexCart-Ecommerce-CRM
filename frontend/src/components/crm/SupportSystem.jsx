@@ -5,7 +5,7 @@ const SupportSystem = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/support')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/support')
       .then(res => res.json())
       .then(data => {
         setTickets(data);
@@ -27,7 +27,7 @@ const SupportSystem = () => {
     if (!responseMsg) return; // cancelled
 
     try {
-      const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/support/${ticketId}`, {
+      const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/support/${ticketId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'Resolved' })

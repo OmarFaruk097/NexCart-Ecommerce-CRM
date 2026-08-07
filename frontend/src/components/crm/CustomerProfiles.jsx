@@ -8,7 +8,7 @@ const CustomerProfiles = () => {
   const [fetchingHistory, setFetchingHistory] = useState(false);
 
   useEffect(() => {
-    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/customers')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/customers')
       .then(res => res.json())
       .then(data => {
         setCustomers(data);
@@ -23,7 +23,7 @@ const CustomerProfiles = () => {
   const handleViewHistory = async (customer) => {
     setFetchingHistory(true);
     try {
-      const res = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/orders/user/${customer._id}`);
+      const res = await fetch(`http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/orders/user/${customer._id}`);
       const data = await res.json();
       setUserOrders(data);
       setSelectedUser(customer);

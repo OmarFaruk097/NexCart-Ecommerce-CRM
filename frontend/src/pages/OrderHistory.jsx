@@ -13,7 +13,7 @@ const OrderHistory = () => {
       if (!user) return;
       try {
         const userId = user._id;
-        const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/orders/user/${userId}`);
+        const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/orders/user/${userId}`);
         const data = await response.json();
         setOrders(data);
       } catch (err) {
