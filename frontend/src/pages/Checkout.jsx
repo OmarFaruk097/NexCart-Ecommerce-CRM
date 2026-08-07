@@ -35,7 +35,7 @@ const Checkout = () => {
     };
 
     try {
-      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/orders', {
+      const response = await fetch('https://nexcart-ecommerce-crm.onrender.com/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData),

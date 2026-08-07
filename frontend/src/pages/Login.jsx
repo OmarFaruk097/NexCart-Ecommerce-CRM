@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLoginSubmit = async (credentials) => {
     try {
-      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/users/login', {
+      const response = await fetch('https://nexcart-ecommerce-crm.onrender.com/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -8,9 +8,9 @@ const Analytics = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/products').then(res => res.json()),
-      fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/orders').then(res => res.json()),
-      fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/customers').then(res => res.json())
+      fetch('https://nexcart-ecommerce-crm.onrender.com/api/products').then(res => res.json()),
+      fetch('https://nexcart-ecommerce-crm.onrender.com/api/crm/orders').then(res => res.json()),
+      fetch('https://nexcart-ecommerce-crm.onrender.com/api/crm/customers').then(res => res.json())
     ]).then(([productsData, ordersData, customersData]) => {
       setProducts(productsData);
       setOrders(ordersData);

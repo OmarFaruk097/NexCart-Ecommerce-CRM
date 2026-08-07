@@ -5,7 +5,7 @@ const OrderManagement = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/orders')
+    fetch('https://nexcart-ecommerce-crm.onrender.com/api/crm/orders')
       .then(res => res.json())
       .then(data => {
         setOrders(data);
@@ -19,7 +19,7 @@ const OrderManagement = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/crm/orders/${orderId}/status`, {
+      const response = await fetch(`https://nexcart-ecommerce-crm.onrender.com/api/crm/orders/${orderId}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
