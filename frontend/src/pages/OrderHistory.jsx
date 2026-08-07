@@ -13,7 +13,7 @@ const OrderHistory = () => {
       if (!user) return;
       try {
         const userId = user._id;
-        const response = await fetch(`http://localhost:5000/api/orders/user/${userId}`);
+        const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/orders/user/${userId}`);
         const data = await response.json();
         setOrders(data);
       } catch (err) {
@@ -26,15 +26,15 @@ const OrderHistory = () => {
     fetchOrders();
   }, [user]);
 
-  if (!user) return <div style={{textAlign: 'center', padding: '4rem'}}><h2>Please log in to view your orders.</h2><button onClick={() => navigate('/login')} className="btn btn-primary">Go to Login</button></div>;
-  if (loading) return <div style={{textAlign: 'center', padding: '4rem'}}><h2>Loading orders...</h2></div>;
+  if (!user) return <div style={{ textAlign: 'center', padding: '4rem' }}><h2>Please log in to view your orders.</h2><button onClick={() => navigate('/login')} className="btn btn-primary">Go to Login</button></div>;
+  if (loading) return <div style={{ textAlign: 'center', padding: '4rem' }}><h2>Loading orders...</h2></div>;
 
   return (
     <div>
       <h1 className="page-title">Your Order History</h1>
       <div className="orders-container">
         {orders.length === 0 ? (
-          <p style={{textAlign: 'center'}}>You have no past orders.</p>
+          <p style={{ textAlign: 'center' }}>You have no past orders.</p>
         ) : (
           orders.map(order => (
             <div key={order.id} className="order-card">
@@ -55,7 +55,7 @@ const OrderHistory = () => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', margin: '2rem 1rem 1.5rem', position: 'relative' }}>
                   <div style={{ position: 'absolute', top: '50%', left: '0', right: '0', height: '4px', background: 'var(--border-color)', zIndex: 1, transform: 'translateY(-50%)' }}></div>
                   <div style={{ position: 'absolute', top: '50%', left: '0', width: order.status === 'Delivered' ? '100%' : order.status === 'Shipped' ? '50%' : '0%', height: '4px', background: '#10b981', zIndex: 2, transform: 'translateY(-50%)', transition: 'width 0.3s ease' }}></div>
-                  
+
                   {['Processing', 'Shipped', 'Delivered'].map((step, index) => {
                     let isCompleted = false;
                     let isActive = false;
@@ -65,9 +65,9 @@ const OrderHistory = () => {
 
                     return (
                       <div key={step} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 3, background: 'var(--surface-color)', padding: '0 0.5rem' }}>
-                        <div style={{ 
-                          width: '24px', height: '24px', borderRadius: '50%', 
-                          background: isCompleted ? '#10b981' : 'var(--border-color)', 
+                        <div style={{
+                          width: '24px', height: '24px', borderRadius: '50%',
+                          background: isCompleted ? '#10b981' : 'var(--border-color)',
                           color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
                           marginBottom: '0.5rem', fontSize: '0.8rem', fontWeight: 'bold',
                           boxShadow: isActive ? '0 0 0 4px rgba(16, 185, 129, 0.2)' : 'none'

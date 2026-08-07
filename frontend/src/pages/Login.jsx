@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLoginSubmit = async (credentials) => {
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,8 +34,8 @@ const Login = () => {
   return (
     <div>
       <LoginForm onSubmit={handleLoginSubmit} title="Welcome Back" />
-      <p style={{textAlign: 'center', color: 'var(--text-secondary)'}}>
-        Don't have an account? <Link to="/register" style={{color: 'var(--primary-color)', fontWeight: 'bold'}}>Sign up here</Link>
+      <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
+        Don't have an account? <Link to="/register" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Sign up here</Link>
       </p>
     </div>
   );

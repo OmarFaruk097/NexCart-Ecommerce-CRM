@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 const InventoryControl = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   // Form state
   const [formData, setFormData] = useState({ name: '', price: '', category: '', stock: '', description: '', imageUrl: '' });
 
   const fetchProducts = () => {
-    fetch('http://localhost:5000/api/products')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/products')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -27,9 +27,9 @@ const InventoryControl = () => {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     const newProd = { ...formData, price: parseFloat(formData.price) || 0, stock: parseInt(formData.stock) || 0 };
-    
+
     try {
-      const res = await fetch('http://localhost:5000/api/crm/products', {
+      const res = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newProd)
@@ -46,9 +46,9 @@ const InventoryControl = () => {
 
   const handleDeleteProduct = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
-    
+
     try {
-      const res = await fetch(`http://localhost:5000/api/crm/products/${id}`, { method: 'DELETE' });
+      const res = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/products/${id}`, { method: 'DELETE' });
       if (res.ok) {
         fetchProducts();
       }
@@ -67,10 +67,10 @@ const InventoryControl = () => {
           {products.map(p => (
             <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--surface-color)', padding: '1rem', borderRadius: '8px', boxShadow: 'var(--shadow-sm)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <img 
-                  src={p.imageUrl || p.imageurl} 
-                  alt={p.name} 
-                  style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} 
+                <img
+                  src={p.imageUrl || p.imageurl}
+                  alt={p.name}
+                  style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=600&auto=format&fit=crop';
@@ -86,7 +86,7 @@ const InventoryControl = () => {
           ))}
         </div>
       </div>
-      
+
       <div>
         <h2 style={{ marginBottom: '1.5rem' }}>Add New Product</h2>
         <form onSubmit={handleAddProduct} style={{ background: 'var(--surface-color)', padding: '1.5rem', borderRadius: '8px', boxShadow: 'var(--shadow-sm)' }}>

@@ -8,7 +8,7 @@ const CustomerProfiles = () => {
   const [fetchingHistory, setFetchingHistory] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/crm/customers')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/customers')
       .then(res => res.json())
       .then(data => {
         setCustomers(data);
@@ -23,7 +23,7 @@ const CustomerProfiles = () => {
   const handleViewHistory = async (customer) => {
     setFetchingHistory(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/orders/user/${customer._id}`);
+      const res = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/orders/user/${customer._id}`);
       const data = await res.json();
       setUserOrders(data);
       setSelectedUser(customer);
@@ -59,8 +59,8 @@ const CustomerProfiles = () => {
                 <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>{customer.email}</td>
                 <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>{customer.registeredAt}</td>
                 <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
-                  <button 
-                    className="btn" 
+                  <button
+                    className="btn"
                     style={{ padding: '0.25rem 0.75rem', fontSize: '0.8rem', background: 'var(--background-color)' }}
                     onClick={() => handleViewHistory(customer)}
                     disabled={fetchingHistory}
@@ -81,7 +81,7 @@ const CustomerProfiles = () => {
               <h3 style={{ margin: 0 }}>Purchase History: {selectedUser.name}</h3>
               <button onClick={() => setSelectedUser(null)} className="btn" style={{ padding: '0.25rem 0.5rem', background: '#ef4444', color: 'white' }}>Close</button>
             </div>
-            
+
             {userOrders.length === 0 ? (
               <p>This user has not placed any orders yet.</p>
             ) : (

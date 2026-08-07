@@ -13,7 +13,7 @@ const Catalog = () => {
     // Fetch products from our Node.js backend
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products');
+        const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/products');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -42,8 +42,8 @@ const Catalog = () => {
     setFilteredProducts(result);
   }, [searchTerm, categoryFilter, products]);
 
-  if (loading) return <div style={{textAlign: 'center', padding: '4rem'}}><h2>Loading products...</h2></div>;
-  if (error) return <div style={{textAlign: 'center', padding: '4rem', color: 'var(--secondary-color)'}}><h2>{error}</h2></div>;
+  if (loading) return <div style={{ textAlign: 'center', padding: '4rem' }}><h2>Loading products...</h2></div>;
+  if (error) return <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--secondary-color)' }}><h2>{error}</h2></div>;
 
   // Get unique categories for filter dropdown
   const categories = [...new Set(products.map(p => p.category))];
@@ -51,18 +51,18 @@ const Catalog = () => {
   return (
     <div>
       <h1 className="page-title">Discover Our Premium Collection</h1>
-      
+
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-        <input 
-          type="text" 
-          placeholder="Search products..." 
-          className="form-input" 
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="form-input"
           style={{ flex: 1, minWidth: '200px' }}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <select 
-          className="form-input" 
+        <select
+          className="form-input"
           style={{ flex: 1, minWidth: '200px' }}
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}

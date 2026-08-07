@@ -11,9 +11,9 @@ const Register = () => {
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const response = await fetch('http://localhost:5000/api/users/register', {
+      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,8 +81,8 @@ const Register = () => {
           </button>
         </form>
       </div>
-      <p style={{textAlign: 'center', color: 'var(--text-secondary)'}}>
-        Already have an account? <Link to="/login" style={{color: 'var(--primary-color)', fontWeight: 'bold'}}>Log in here</Link>
+      <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
+        Already have an account? <Link to="/login" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Log in here</Link>
       </p>
     </div>
   );

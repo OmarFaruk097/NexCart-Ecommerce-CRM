@@ -21,7 +21,7 @@ const Checkout = () => {
 
   const handleCheckoutSubmit = async (e) => {
     e.preventDefault();
-    
+
     const orderData = {
       userId: user ? user._id : 'guest', // Though guest is blocked by UI below, just in case
       items: cartItems,
@@ -35,7 +35,7 @@ const Checkout = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData),
@@ -54,8 +54,8 @@ const Checkout = () => {
     }
   };
 
-  if (cartItems.length === 0) return <div style={{textAlign: 'center', padding: '4rem'}}><h2>No items to checkout</h2></div>;
-  if (!user) return <div style={{textAlign: 'center', padding: '4rem'}}><h2>Please log in to checkout.</h2><button onClick={() => navigate('/login')} className="btn btn-primary">Go to Login</button></div>;
+  if (cartItems.length === 0) return <div style={{ textAlign: 'center', padding: '4rem' }}><h2>No items to checkout</h2></div>;
+  if (!user) return <div style={{ textAlign: 'center', padding: '4rem' }}><h2>Please log in to checkout.</h2><button onClick={() => navigate('/login')} className="btn btn-primary">Go to Login</button></div>;
 
   return (
     <div className="form-container" style={{ maxWidth: '600px' }}>

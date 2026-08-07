@@ -8,9 +8,9 @@ const Analytics = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('http://localhost:5000/api/products').then(res => res.json()),
-      fetch('http://localhost:5000/api/crm/orders').then(res => res.json()),
-      fetch('http://localhost:5000/api/crm/customers').then(res => res.json())
+      fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/products').then(res => res.json()),
+      fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/orders').then(res => res.json()),
+      fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/customers').then(res => res.json())
     ]).then(([productsData, ordersData, customersData]) => {
       setProducts(productsData);
       setOrders(ordersData);
@@ -28,7 +28,7 @@ const Analytics = () => {
   const totalSales = orders.reduce((sum, order) => sum + (order.total || 0), 0);
   const pendingOrdersCount = orders.filter(order => order.status === 'Processing').length;
   const activeUsersCount = customers.length;
-  
+
   return (
     <div>
       <h2 style={{ marginBottom: '1.5rem' }}>Dashboard Analytics</h2>

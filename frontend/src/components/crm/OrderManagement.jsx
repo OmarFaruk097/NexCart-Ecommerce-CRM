@@ -5,7 +5,7 @@ const OrderManagement = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/crm/orders')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/orders')
       .then(res => res.json())
       .then(data => {
         setOrders(data);
@@ -19,12 +19,12 @@ const OrderManagement = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/crm/orders/${orderId}/status`, {
+      const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/orders/${orderId}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
       });
-      
+
       if (response.ok) {
         setOrders(prev => prev.map(order => order.id === orderId ? { ...order, status: newStatus } : order));
         alert(`Order ${orderId} status updated to ${newStatus}`);
@@ -53,8 +53,8 @@ const OrderManagement = () => {
               </div>
             </div>
             <div>
-              <select 
-                value={order.status} 
+              <select
+                value={order.status}
                 onChange={(e) => handleStatusChange(order.id, e.target.value)}
                 style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'white' }}
               >

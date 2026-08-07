@@ -5,7 +5,7 @@ const SupportSystem = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/crm/support')
+    fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/support')
       .then(res => res.json())
       .then(data => {
         setTickets(data);
@@ -27,7 +27,7 @@ const SupportSystem = () => {
     if (!responseMsg) return; // cancelled
 
     try {
-      const response = await fetch(`http://localhost:5000/api/crm/support/${ticketId}`, {
+      const response = await fetch(`http://https://nexcart-ecommerce-crm.onrender.com:5000/api/crm/support/${ticketId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'Resolved' })
@@ -64,8 +64,8 @@ const SupportSystem = () => {
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '0.25rem' }}>From: {ticket.user}</p>
             </div>
             <div>
-              <button 
-                className="btn btn-primary" 
+              <button
+                className="btn btn-primary"
                 style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
                 onClick={() => handleRespond(ticket.id, ticket.status)}
               >

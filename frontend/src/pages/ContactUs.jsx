@@ -21,7 +21,7 @@ const ContactUs = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/support', {
+      const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.com:5000/api/support', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -45,7 +45,7 @@ const ContactUs = () => {
   return (
     <div className="form-container">
       <h1 className="page-title" style={{ textAlign: 'center' }}>Contact Support</h1>
-      
+
       {!user ? (
         <div style={{ textAlign: 'center', color: '#ef4444' }}>
           Please log in to submit a support ticket.
@@ -54,31 +54,31 @@ const ContactUs = () => {
         <form onSubmit={handleSubmit}>
           {status === 'success' && <div style={{ color: '#10b981', marginBottom: '1rem' }}>Ticket submitted successfully! We will get back to you soon.</div>}
           {status === 'error' && <div style={{ color: '#ef4444', marginBottom: '1rem' }}>Failed to submit ticket. Please try again.</div>}
-          
+
           <div className="form-group">
             <label htmlFor="subject" className="form-label">Subject</label>
-            <input 
-              type="text" 
-              id="subject" 
-              className="form-input" 
-              value={formData.subject} 
-              onChange={handleChange} 
-              required 
+            <input
+              type="text"
+              id="subject"
+              className="form-input"
+              value={formData.subject}
+              onChange={handleChange}
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="message" className="form-label">Message</label>
-            <textarea 
-              id="message" 
-              className="form-input" 
+            <textarea
+              id="message"
+              className="form-input"
               rows="5"
-              value={formData.message} 
-              onChange={handleChange} 
-              required 
+              value={formData.message}
+              onChange={handleChange}
+              required
             ></textarea>
           </div>
-          
+
           <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
             Submit Ticket
           </button>
