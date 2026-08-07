@@ -13,7 +13,9 @@ const Catalog = () => {
     // Fetch products from our Node.js backend
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://https://nexcart-ecommerce-crm.onrender.comhttps://nexcart-ecommerce-crm.onrender.com/api/products');
+        const response = await fetch(
+          'https://nexcart-ecommerce-crm.onrender.com/api/products'
+        );
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
