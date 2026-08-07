@@ -1,0 +1,16 @@
+{
+  "name": "omar-ecommerce-crm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev -- --host 0.0.0.0",
+    "dev:backend": "cd backend && npm start",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "vite": "^8.2.1"
+  }
+}
