@@ -6,8 +6,12 @@ const { initDb } = require('./config/db');
 const { spawn } = require('child_process');
 const path = require('path');
 
+console.log("=== INDEX.JS STARTED ===");
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+console.log("Express app created");
 
 // Initialize database
 initDb().then(() => {
@@ -32,6 +36,8 @@ app.use(cors({
 
 app.use(express.json());
 
+console.log("Loading routes...");
+
 // Routes
 const productRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
@@ -45,12 +51,22 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/crm', crmRoutes);
 app.use('/api/support', supportRoutes);
 
-// Root endpoint
+console.log("All routes loaded");
+
+// Debug Route
+app.get('/test', (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend Working"
+  });
+});
+
+// Root Route
 app.get('/', (req, res) => {
   res.send('E-commerce & CRM API is running...');
 });
 
-// Start server
+// Start Server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
